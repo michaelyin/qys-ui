@@ -11,6 +11,7 @@ var _gauges = _gauges || [];
 })();
 
 
+
 $("#tcdPageCode").createPage({
 		pageCount:20,
 		current:1,
@@ -19,8 +20,7 @@ $("#tcdPageCode").createPage({
 	}
 });
 
-
 function update_data()
 {
-	window.location.href="input3.html";
-}
+	window.location.href="interpretation_upload.html";
+}	
