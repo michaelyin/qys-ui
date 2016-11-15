@@ -24,3 +24,8 @@ function update_data()
 {
 	window.location.href="input.html";
 }
+function back()
+{
+//index.html
+	window.location.href="index.html";
+}
