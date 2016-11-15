@@ -18,7 +18,7 @@
 <link href="http://app.aireading.cn/exo-ux/eXoSkin/skin/css/docs.css" rel="stylesheet">
 <link href="http://app.aireading.cn/exo-ux/eXoSkin/skin/css/responsive.css" rel="stylesheet">
 
-
+<link href="css/content.css" rel="stylesheet" type="text/css" />
 <!-- syntaxhighlighter -->
 <link href="http://app.aireading.cn/exo-ux/js/google-code-prettify/prettify.css" rel="stylesheet" type="text/css" />
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -30,66 +30,9 @@
 <!-- Le fav and touch icons -->
 <script src="http://app.aireading.cn/exo-ux/js/track.js" data-site-id="4f0dc9fef5a1f55508000013" id="gauges-tracker" async="" type="text/javascript"></script>
 <script src="http://app.aireading.cn/exo-ux/js/ga.js" async="" type="text/javascript"></script>
-<script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-146052-10']);
-        _gaq.push(['_trackPageview']);
-        (function() {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
+<script type="text/javascript" src="js/content.js">
+      
 </script>
-
-
-<style>
-	
-.container{
-	width:90%;
-	padding:0;
-	margin:0;
-	margin-left:auto;
-	margin-right:auto;
-	
-}
-
-
-.container_left{
-	width:78%;
-	/*background:#CCCCCC;*/
-	float:left;
-	display:block;
-	padding:0;
-	margin:0;
-}
-
-.container_right{
-	width:22%;
-	/*background:#000099;*/
-	float:right;
-	display:block;
-	padding:0;
-	margin:0;
-}
-
-
-/******/
-.breadcrumb{
-	margin-bottom:10px;
-}
-
-
-.btn{
-	background:#578DC9;
-	color:#FFFFFF;
-}
-	
-	
-</style>
-
 </head>
 
 <body>
@@ -288,17 +231,5 @@
 	
 	
     <!-- Analytics -->
-    <script>
-        var _gauges = _gauges || [];
-        (function() {
-            var t = document.createElement('script');
-            t.type = 'text/javascript';
-            t.async = true;
-            t.id = 'gauges-tracker';
-            t.setAttribute('data-site-id', '4f0dc9fef5a1f55508000013');
-            t.src = '//secure.gaug.es/track.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(t, s);
-        })();
-    </script>
+    <script type="text/javascript" src="js/content_after.js"></script>
 </html>
