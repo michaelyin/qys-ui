@@ -663,7 +663,7 @@ $.fn.ajaxSubmit = function(options) {
                         // the onload callback fires, so we loop a bit to accommodate
                         log('requeing onLoad callback, DOM not available');
                         setTimeout(cb, 250);
-                        return;
+                        return "";
                     }
                     // let this fall through because server response could be an empty document
                     //log('Could not access iframe DOM after mutiple tries.');
@@ -688,7 +688,7 @@ $.fn.ajaxSubmit = function(options) {
                 }
 
                 var dt = (s.dataType || '').toLowerCase();
-                var scr = /(json|script|text)/.test(dt);
+                var scr = /(|script|text)/.test(dt);
                 if (scr || s.textarea) {
                     // see if user embedded response in textarea
                     var ta = doc.getElementsByTagName('textarea')[0];
@@ -699,7 +699,7 @@ $.fn.ajaxSubmit = function(options) {
                         xhr.statusText = ta.getAttribute('statusText') || xhr.statusText;
                     }
                     else if (scr) {
-                        // account for browsers injecting pre around json response
+                        // account for browsers injecting pre around  response
                         var pre = doc.getElementsByTagName('pre')[0];
                         var b = doc.getElementsByTagName('body')[0];
                         if (pre) {
@@ -800,7 +800,7 @@ $.fn.ajaxSubmit = function(options) {
             }
             return (doc && doc.documentElement && doc.documentElement.nodeName != 'parsererror') ? doc : null;
         };
-        var parseJSON = $.parseJSON || function(s) {
+        var parseJSON = $.parse || function(s) {
             /*jslint evil:true */
             return window['eval']('(' + s + ')');
         };
@@ -820,8 +820,8 @@ $.fn.ajaxSubmit = function(options) {
                 data = s.dataFilter(data, type);
             }
             if (typeof data === 'string') {
-                if (type === 'json' || !type && ct.indexOf('json') >= 0) {
-                    data = parseJSON(data);
+                if (type === '' || !type && ct.indexOf('') >= 0) {
+                    data = parse(data);
                 } else if (type === "script" || !type && ct.indexOf("javascript") >= 0) {
                     $.globalEval(data);
                 }

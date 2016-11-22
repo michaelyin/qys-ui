@@ -1,3 +1,4 @@
+
 var map = new AMap.Map("mapview", {
 	resizeEnable: true,
 	zoom:4,
@@ -18,12 +19,26 @@ var _gauges = _gauges || [];
 	s.parentNode.insertBefore(t, s);
 })();
 
+$("#tcdPageCode").createPage({
+		pageCount:20,
+		current:1,
+		backFn:function(p){
+			
+	}
+});
+
+function update_data()
+{
+	window.location.href="local_upload.html";
+}	
 // 路径配置
 require.config({
 	paths: {
 		echarts: 'http://echarts.baidu.com/build/dist'
 	}
 });
+
+
 
 var myChart;
 var option;

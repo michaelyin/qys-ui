@@ -100,54 +100,49 @@
 			alert("请输入政策名称！");
 			return false;
 		}
+		if($("#form1").find("input[name='publishDept']").val()=="".trim())
+		{
+			alert("请输入发布部门！");
+			return false;
+		}
+		if($("#form1").find("input[name='policyNum']").val()=="".trim())
+		{
+			alert("请输入文号！");
+			return false;
+		}
+		//province
+		if($("#form1").find("input[name='province']").val()=="".trim())
+		{
+			alert("请输入或选择的省份！");
+			return false;
+		}
+		if($("#form1").find("input[name='city']").val()=="".trim())
+		{
+			alert("请输入或选择的城市！");
+			return false;
+		}
+		if($("#form1").find("input[name='policyCategoryTxt']").val()=="".trim())
+		{
+			alert("请输入政策类别！");
+			return false;
+		}
+		if($("#form1").find("input[name='tag']").val()=="".trim())
+		{
+			alert("请输入标签!");
+			return false;
+		}
+		if($("#form1").find("textarea[name='policyTxt']").val()=="".trim())
+		{
+			alert("请输入政策原文！");
+			return false;
+		}
+		if($("#form1").find("textarea[name='InterpretationTxt']").val()=="".trim())
+		{
+			alert("请输入政策解读！");
+			return false;
+		}
 		
-		var permType = document.getElementById("permType").value;
-		//alert(permType);
-		//alert(document.getElementById("perm").value);
-		var perm = document.getElementById("perm").value;
-		//alert(perm);
-		if((permType=="1"))
-		{
-			//alert("aaaaaaaaaaaaaaaa");
-			if(perm!="")
-			{
-				//alert("aaaaaaaaaaaaaaaa");
-				document.getElementById("policyPerm").value=perm;
-				document.getElementById("InterpretationPerm").value="0";
-			}
-		}
-		else if((permType=='2'))
-		{
-			if(perm!="")
-			{
-				document.getElementById("policyPerm").value="0";
-				document.getElementById("InterpretationPerm").value=perm;
-			}
-		}
-		var EncrpLevelType = document.getElementById("EncrpLevelType").value;
-		//alert(EncrpLevelType);
-		//alert(document.getElementById("perm").value);
-		var EncrpLevel = document.getElementById("EncrpLevel").value;
-		//alert(EncrpLevel);
-		if((EncrpLevelType=="1"))
-		{
-			//alert("aaaaaaaaaaaaaaaa");
-			if(EncrpLevel!="")
-			{
-				//alert("aaaaaaaaaaaaaaaa");
-				document.getElementById("policyEncrpLevel").value=EncrpLevel;
-				document.getElementById("InterpretationEncrpLevel").value="0";
-			}
-		}
-		else if((EncrpLevelType=='2'))
-		{
-			//alert("aaaaaaaaaaaaaaaa");
-			if(EncrpLevel!="")
-			{
-				document.getElementById("policyEncrpLevel").value="0";
-				document.getElementById("InterpretationEncrpLevel").value=EncrpLevel;
-			}
-		}
+		
 		return true;	
 	}
 	
@@ -251,7 +246,7 @@
 	}
 	
 	
-		var The_Year,The_Day,The_Month;
+	var The_Year,The_Day,The_Month;
 	var today;
 	var Firstday;
 	today = new Date();
@@ -409,7 +404,7 @@
 		showstr += "</tbody></table>";
 		showstr += "<div class=\"calendarTimeInput\">"+
                 		"<span>"+
-                    		"<input type=\"text\" onblur=\"this.parentNode.className=''\" onfocus=\"this.parentNode.className='focus'\" onkeyup=\"eXo.webui.UICalendar.setHour(this)\" value=\""+day+"\" maxlength=\"2\" class=\"InputTime\">:<input type=\"text\" onblur=\"this.parentNode.className=''\" onfocus=\"this.parentNode.className='focus'\" onkeyup=\"eXo.webui.UICalendar.setMinus(this)\" value=\"40\" maxlength=\"2\" class=\"InputTime\">"+
+                    		"<input type=\"text\" onblur=\"this.parentNode.className=''\" onfocus=\"this.parentNode.className='focus'\" onkeyup=\"eXo.webui.UICalendar.setHour(this)\" value=\""+day+"\" maxlength=\"2\" class=\"InputTime\">:<input type=\"text\" onblur=\"this.parentNode.className=''\" onfocus=\"this.parentNode.className='focus'\" onkeyup=\"eXo.webui.UICalendar.setMinus(this)\" value=\"\" maxlength=\"2\" class=\"InputTime\">"+
                 		"</span>"+
 				"</div>";
 		//alert(showstr);
@@ -455,11 +450,11 @@
 		}
 		showstr = "";
 		showstr = "<h5 class=\"title clearfix\">"+
-				     "<a data-original-title=\"Previous Month\" class=\"actionIcon pull-left\" onclick=\"prevmonth("+The_Year+","+The_Month+")\" rel=\"tooltip\" data-placement=\"right\">"+
+				     "<a data-original-title=\"Previous Month\" class=\"actionIcon pull-left\" onclick=\"prevmonth2("+The_Year+","+The_Month+")\" rel=\"tooltip\" data-placement=\"right\">"+
     			       "<i class=\"uiIconMiniArrowLeft uiIconLightGray\"></i>"+
 					 "</a>"+
 				     "<span id=\"dateYM2\">"+ShowMonth+", "+The_Year+"</span>"+
-					 "<a data-original-title=\"Next Month\" class=\"actionIcon pull-right\" onclick=\"nextmonth("+The_Year+","+The_Month+")\" rel=\"tooltip\" data-placement=\"right\">"+
+					 "<a data-original-title=\"Next Month\" class=\"actionIcon pull-right\" onclick=\"nextmonth2("+The_Year+","+The_Month+")\" rel=\"tooltip\" data-placement=\"right\">"+
    					   "<i class=\"uiIconMiniArrowRight uiIconLightGray\" style=\"position:relative; top:-14px;\"></i>"+
 					 "</a>"+
 				  "</h5>"+
@@ -544,7 +539,7 @@
 		showstr += "</tbody></table>";
 		showstr += "<div class=\"calendarTimeInput\">"+
                 		"<span>"+
-                    		"<input type=\"text\" onblur=\"this.parentNode.className=''\" onfocus=\"this.parentNode.className='focus'\" onkeyup=\"eXo.webui.UICalendar.setHour(this)\" value=\""+day+"\" maxlength=\"2\" class=\"InputTime\">:<input type=\"text\" onblur=\"this.parentNode.className=''\" onfocus=\"this.parentNode.className='focus'\" onkeyup=\"eXo.webui.UICalendar.setMinus(this)\" value=\"40\" maxlength=\"2\" class=\"InputTime\">"+
+                    		"<input type=\"text\" onblur=\"this.parentNode.className=''\" onfocus=\"this.parentNode.className='focus'\" onkeyup=\"eXo.webui.UICalendar.setHour(this)\" value=\""+day+"\" maxlength=\"2\" class=\"InputTime\">:<input type=\"text\" onblur=\"this.parentNode.className=''\" onfocus=\"this.parentNode.className='focus'\" onkeyup=\"eXo.webui.UICalendar.setMinus(this)\" value=\"\" maxlength=\"2\" class=\"InputTime\">"+
                 		"</span>"+
 				"</div>";
 		//alert(showstr);
@@ -589,11 +584,11 @@
 		}
 		showstr = "";
 		showstr = "<h5 class=\"title clearfix\">"+
-				     "<a data-original-title=\"Previous Month\" class=\"actionIcon pull-left\" onclick=\"prevmonth("+The_Year+","+The_Month+")\" rel=\"tooltip\" data-placement=\"right\">"+
+				     "<a data-original-title=\"Previous Month\" class=\"actionIcon pull-left\" onclick=\"prevmonth3("+The_Year+","+The_Month+")\" rel=\"tooltip\" data-placement=\"right\">"+
     			       "<i class=\"uiIconMiniArrowLeft uiIconLightGray\"></i>"+
 					 "</a>"+
 				     "<span id=\"dateYM3\">"+ShowMonth+", "+The_Year+"</span>"+
-					 "<a data-original-title=\"Next Month\" class=\"actionIcon pull-right\" onclick=\"nextmonth("+The_Year+","+The_Month+")\" rel=\"tooltip\" data-placement=\"right\">"+
+					 "<a data-original-title=\"Next Month\" class=\"actionIcon pull-right\" onclick=\"nextmonth3("+The_Year+","+The_Month+")\" rel=\"tooltip\" data-placement=\"right\">"+
    					   "<i class=\"uiIconMiniArrowRight uiIconLightGray\" style=\"position:relative; top:-14px;\"></i>"+
 					 "</a>"+
 				  "</h5>"+
@@ -678,7 +673,7 @@
 		showstr += "</tbody></table>";
 		showstr += "<div class=\"calendarTimeInput\">"+
                 		"<span>"+
-                    		"<input type=\"text\" onblur=\"this.parentNode.className=''\" onfocus=\"this.parentNode.className='focus'\" onkeyup=\"eXo.webui.UICalendar.setHour(this)\" value=\""+day+"\" maxlength=\"2\" class=\"InputTime\">:<input type=\"text\" onblur=\"this.parentNode.className=''\" onfocus=\"this.parentNode.className='focus'\" onkeyup=\"eXo.webui.UICalendar.setMinus(this)\" value=\"40\" maxlength=\"2\" class=\"InputTime\">"+
+                    		"<input type=\"text\" onblur=\"this.parentNode.className=''\" onfocus=\"this.parentNode.className='focus'\" onkeyup=\"eXo.webui.UICalendar.setHour(this)\" value=\""+day+"\" maxlength=\"2\" class=\"InputTime\">:<input type=\"text\" onblur=\"this.parentNode.className=''\" onfocus=\"this.parentNode.className='focus'\" onkeyup=\"eXo.webui.UICalendar.setMinus(this)\" value=\"\" maxlength=\"2\" class=\"InputTime\">"+
                 		"</span>"+
 				"</div>";
 		//alert(showstr);
@@ -717,3 +712,51 @@
 	{
 	 	ShowCalender(The_Year+1,The_Month);
 	}
+	
+	
+	function nextmonth2(The_Year,The_Month) //下一月
+	{
+		if (The_Month==12)
+		{	
+			ShowCalender2(The_Year+1,1);
+		}
+		else 
+		{
+			ShowCalender2(The_Year,The_Month+1);
+		}
+	}
+	
+	function prevmonth2(The_Year,The_Month) //上一月
+	{
+		if (The_Month==1)
+		{
+			ShowCalender2(The_Year-1,12); 
+		}
+	 	else
+		{
+			ShowCalender2(The_Year,The_Month-1);
+		}
+	}
+	function nextmonth3(The_Year,The_Month) //下一月
+	{
+		if (The_Month==12)
+		{	
+			ShowCalender3(The_Year+1,1);
+		}
+		else 
+		{
+			ShowCalender3(The_Year,The_Month+1);
+		}
+	}
+	
+	function prevmonth3(The_Year,The_Month) //上一月
+	{
+		if (The_Month==1)
+		{
+			ShowCalender3(The_Year-1,12); 
+		}
+	 	else
+		{
+			ShowCalender3(The_Year,The_Month-1);
+		}
+	}	

@@ -24,3 +24,16 @@ function update_data()
 {
 	window.location.href="interpretation_upload.html";
 }	
+
+var button_str;
+function get_button_value(button_str)
+{
+	var class_str;
+	//alert(document.getElementById("btn1").value);
+	document.getElementById("btn1").value = button_str;
+	//alert(document.getElementById("btn1").value);
+	document.getElementById("btn1").innerHTML= button_str+"<span class=\"caret\" style=\"margin-top:8px;\"></span>";
+	//alert(document.getElementById("btn1").value);
+	document.getElementById("class").value = button_str;
+	//alert(document.getElementById("class").value);
+}

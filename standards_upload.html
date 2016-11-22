@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>标准</title>
+<title>国家标准上传</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -30,6 +30,7 @@
 <!-- Le fav and touch icons -->
 <script src="http://app.aireading.cn/exo-ux/js/track.js" data-site-id="4f0dc9fef5a1f55508000013" id="gauges-tracker" async="" type="text/javascript"></script>
 <script src="http://app.aireading.cn/exo-ux/js/ga.js" async="" type="text/javascript"></script>
+
 <script type="text/javascript" src="js/standards_upload.js"></script>
 
 </head>
@@ -40,7 +41,7 @@
 		
 		<div class="container_center">
 		
-		<h1  style="text-align:center;">标准上传页面</h1>
+		<h1  style="text-align:center;">国家标准上传</h1>
 		
 		
 		<div class="input-append" style="width:95%;">
@@ -50,13 +51,13 @@
 		<form id="form1" method="post" name="f1" enctype="multipart/form-data">
 		<div class="input-append">
    			<span class="span_title">标准名称</span>
-			<input type="text" id="standardName" name="standardName">
+			<input type="text" id="standardName" name="standardName" AUTOCOMPLETE="off">
    		</div>
 		
 		<div></div>
 		<div class="input-append">
    			<span class="span_title">标准编号</span>
-			<input type="text"  id="standardNum" name="standardNum">
+			<input type="text"  id="standardNum" name="standardNum" AUTOCOMPLETE="off" >
    		</div>
 		
 		
@@ -64,32 +65,32 @@
 		<div class="input-append">
    			<span class="span_title">标准类型</span>
 			<div class="btn-group">
-				<input type="text" data-toggle="dropdown" id="standardTypeTxt" name="standardTypeTxt">
+				<input type="text" data-toggle="dropdown" id="standardTypeTxt" name="standardTypeTxt" AUTOCOMPLETE="off">
 				
 				<ul class="dropdown-menu" style="padding:0px;">
-					<select multiple="multiple" id="standardType" name="standardType" onchange="ShowToText()">
-  						<option value="1">安全</option>
-  						<option value="2">车身及悬架</option>
-  						<option value="3">车轮</option>
-  						<option value="4">材料</option>
-  						<option value="5">灯光</option>
-						<option value="6">底盘</option>
-  						<option value="7">汽车电子与电磁兼容</option>
-  						<option value="8">电器</option>
-  						<option value="9">防盗</option>
-  						<option value="10">回收利用</option>
-						<option value="11">环保（不含排放）</option>
-  						<option value="12">节能</option>
-  						<option value="13">排放</option>
-  						<option value="14">制动</option>
-  						<option value="15">电动车辆</option>
-						<option value="16">挂车</option>
-  						<option value="17">客车</option>
-  						<option value="18">专用车</option>
-  						<option value="19">液化石油气汽车</option>
-  						<option value="20">燃气汽车</option>
-						<option value="21">仪表</option>
-  						<option value="22">其他</option>
+					<select multiple="multiple" id="standardType" name="standardType" onchange="ShowToText()" AUTOCOMPLETE="off">
+  						<option value="安全">安全</option>
+  						<option value="车身及悬架">车身及悬架</option>
+  						<option value="车轮">车轮</option>
+  						<option value="材料">材料</option>
+  						<option value="灯光">灯光</option>
+						<option value="底盘">底盘</option>
+  						<option value="汽车电子与电磁兼容">汽车电子与电磁兼容</option>
+  						<option value="电器">电器</option>
+  						<option value="防盗">防盗</option>
+  						<option value="回收利用">回收利用</option>
+						<option value="环保（不含排放）">环保（不含排放）</option>
+  						<option value="节能">节能</option>
+  						<option value="排放">排放</option>
+  						<option value="制动">制动</option>
+  						<option value="电动车辆">电动车辆</option>
+						<option value="挂车">挂车</option>
+  						<option value="客车">客车</option>
+  						<option value="专用车">专用车</option>
+  						<option value="液化石油气汽车">液化石油气汽车</option>
+  						<option value="燃气汽车">燃气汽车</option>
+						<option value="仪表">仪表</option>
+  						<option value="其他">其他</option>
 					</select>
 				</ul>
    			</div>
@@ -98,8 +99,9 @@
    			<span class="span_title">标签&nbsp;&nbsp;</span>
 			
 			<div class="btn-group">
-				<input type="text" data-toggle="dropdown" id="tag" name="tag">
-				<ul class="dropdown-menu" style=" padding:0px;">
+				<input type="text" data-toggle="dropdown" id="tag" name="tag" AUTOCOMPLETE="off">
+				<!--
+                <ul class="dropdown-menu" style=" padding:0px;">
 					<select multiple="multiple"  id="selectTag" name="selectTag" onChange="ShowToTextTag()">
   						<option value="标签1">标签1</option>
   						<option value="标签2">标签2</option>
@@ -108,7 +110,7 @@
   						<option value="标签5">标签5</option>
   						<option value="标签6">标签6</option>
 					</select>
-				</ul>
+				</ul>-->
 			</div>
    		</div>
 		
@@ -200,6 +202,7 @@
 		
 		<div></div>
 		-->
+        <!--
 		<div class="input-append">
    			<span class="span_title">创建人员</span>
 			<input type="text" readonly="readonly" id="author" name="author" value="admin">
@@ -210,7 +213,7 @@
    			<span class="span_title">所属部门</span>
 			<input type="text" readonly="readonly" id="department" name="department" value="部门1">
    		</div>
-		<!--dept-->
+		
 		<div></div>
 		<div class="input-append">
    			<span class="span_title">创建日期</span>
@@ -250,10 +253,10 @@
    		</div>
 		
 		
-		<div></div>
+		<div></div>-->
 		<div class="input-append">
    			<span class="span_title">标准原文</span>	
-				<textarea rows="5" name="text" id="text"></textarea>
+				<textarea rows="5" name="text" id="text" AUTOCOMPLETE="off"></textarea>
 			<div></div>
 			
 			<div style="width:8%;  margin-left:25%; float:left; font-size:18px; line-height:26px; margin-right:20px;">上传文件</div>
@@ -298,10 +301,14 @@
    		</div>
 		<div></div>
 		
-		
+		<input type="hidden" id="author" name="author" value="admin">
+        <input type="hidden" id="department" name="department" value="部门1">
+        <input type="hidden" id="createDate" name="createDate" value="">
 		<div class="input-append" style="width:95%;">
+        	<!--notes_add_touch()-->
    			<button type="button" class="btn btn-block btn-primary" style="width:10%; float:right;" onclick="notes_add_touch()">提交</button>
    		</div>
+        
 		</form>
 		</div>
 		

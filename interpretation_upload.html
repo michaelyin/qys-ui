@@ -8,7 +8,6 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-
 <!-- Le styles -->
 <link href="http://app.aireading.cn/exo-ux/eXoSkin/skin/bootstrap/css/bootstrap.css" rel="stylesheet">
 <link href="http://app.aireading.cn/exo-ux/eXoSkin/skin/css/Core.css" rel="stylesheet">
@@ -48,7 +47,7 @@
 		<form id="form1" method="post" name="f1" enctype="multipart/form-data">
 		<div class="input-append">
    			<span class="span_title">政策名称</span>
-			<input type="text"  id="policyName" name="policyName">
+			<input type="text"  id="policyName" name="policyName" AUTOCOMPLETE="off">
    		</div>
 		
 		
@@ -56,10 +55,10 @@
 		<div class="input-append">
    			<span class="span_title">发布部门</span>
 			<div class="btn-group">
-				<input type="text" data-toggle="dropdown" name="publishDept" id="publishDept">
+				<input type="text" data-toggle="dropdown" name="publishDept" id="publishDept" AUTOCOMPLETE="off">
 				
 				<ul class="dropdown-menu" style="padding:0px;">
-					<select name="selectPublishDept" id="selectPublishDept" multiple="multiple" onChange="ShowToText()">
+					<select name="selectPublishDept" id="selectPublishDept" multiple="multiple" onChange="ShowToText()" AUTOCOMPLETE="off">
   						<option value="部门1">部门1</option>
   						<option value="部门2">部门2</option>
   						<option value="部门3">部门3</option>
@@ -80,7 +79,7 @@
 		<div></div>
 		<div class="input-append">
    			<span class="span_title">文号&nbsp;&nbsp;</span>
-			<input type="text" name="policyNum" id="policyNum">
+			<input type="text" name="policyNum" id="policyNum" AUTOCOMPLETE="off">
    		</div>
 		
 		
@@ -88,10 +87,10 @@
 		<div class="input-append">
    			<span class="span_title">政策类别</span>
 			<div class="btn-group">
-				<input type="text" data-toggle="dropdown"  name="policyCategoryTxt" id="policyCategoryTxt">
+				<input type="text" data-toggle="dropdown"  name="policyCategoryTxt" id="policyCategoryTxt" AUTOCOMPLETE="off">
 				
 				<ul class="dropdown-menu" style=" padding:0px;" onChange="document.form1.get.value=this.options[this.selectedIndex].value">
-					<select multiple="multiple" name="policyCategory" id="policyCategory" onChange="ShowToText2()">
+					<select multiple="multiple" name="policyCategory" id="policyCategory" onChange="ShowToText2()" AUTOCOMPLETE="off">
   						<option value="1">法律体系</option>
   						<option value="2">产业政策</option>
   						<option value="3">规划</option>
@@ -125,10 +124,10 @@
 		
 		
 		<div></div>
-		<div class="input-append">
+		<!--<div class="input-append">
    			<span class="span_title">生效日期</span>
 			<div class="btn-group">
-          		<input type="text" data-toggle="dropdown" name="startDate" id="startDate"> 
+          		<input type="text" data-toggle="dropdown" name="startDate" id="startDate" AUTOCOMPLETE="off"> 
         			<ul class="dropdown-menu" style="padding:0px; width:50%;">
             			<div class="uiCalendarComponent uiBox" id="BlockCalendar" style="margin:0px; padding:0px; width:100%;">
         					<div style="cursor: default" onmousedown="event.cancelBubble = true" id="cc">
@@ -200,7 +199,7 @@
             							<div class="calendarTimeInput">
                 							<span>
                     							<input type="text" onblur="this.parentNode.className=''" onfocus="this.parentNode.className='focus'" onkeyup="eXo.webui.UICalendar.setHour(this)" value="16" maxlength="2" class="InputTime">:<input type="text" onblur="this.parentNode.className=''" onfocus="this.parentNode.className='focus'" onkeyup="eXo.webui.UICalendar.setMinus(this)" value="40" maxlength="2" class="InputTime">
-                							</span>            							</div>-->
+                							</span>            							</div>
         							</div>
     							</div>
         					</ul>
@@ -208,15 +207,15 @@
    		</div>
 		
 		
-		<div></div>
-		<div class="input-append">
+		<div></div>-->
+		<!--<div class="input-append">
    			<span class="span_title">实施日期</span>
 			<div class="btn-group">
-          		<input type="text" data-toggle="dropdown" name="activeDate" id="activeDate"> 
+          		<input type="text" data-toggle="dropdown" name="activeDate" id="activeDate" AUTOCOMPLETE="off"> 
         			<ul class="dropdown-menu" style="padding:0px; width:50%;">
             			<div class="uiCalendarComponent uiBox" id="BlockCalendar" style="margin:0px; padding:0px; width:100%;">
         					<div style="cursor: default" onmousedown="event.cancelBubble = true" id="cc2">
-            					<!--<h5 class="title clearfix">
+            					<h5 class="title clearfix">
                                    <a data-original-title="Previous Month" class="actionIcon pull-left" onclick="" rel="tooltip" data-placement="right">
                 <i class="uiIconMiniArrowLeft uiIconLightGray"></i>
             </a>
@@ -287,7 +286,7 @@
             							<div class="calendarTimeInput">
                 							<span>
                     							<input type="text" onblur="this.parentNode.className=''" onfocus="this.parentNode.className='focus'" onkeyup="eXo.webui.UICalendar.setHour(this)" value="16" maxlength="2" class="InputTime">:<input type="text" onblur="this.parentNode.className=''" onfocus="this.parentNode.className='focus'" onkeyup="eXo.webui.UICalendar.setMinus(this)" value="40" maxlength="2" class="InputTime">
-                							</span>            							</div>-->
+                							</span>            							</div>
         							</div>
     							</div>
         					</ul>
@@ -295,15 +294,15 @@
    		</div>
 		
 		
-		<div></div>
-		<div class="input-append">
+		<div></div>-->
+		<!--<div class="input-append">
    			<span class="span_title">失效日期</span>
 			<div class="btn-group" style="padding:0; margin-bottom:3px;">
-          		<input type="text" data-toggle="dropdown" name="endDate" id="endDate"> 
+          		<input type="text" data-toggle="dropdown" name="endDate" id="endDate" AUTOCOMPLETE="off"> 
         			<ul class="dropdown-menu" style="padding:0px; width:50%;">
             			<div class="uiCalendarComponent uiBox" id="BlockCalendar" style="margin:0px; padding:0px; width:100%;">
         					<div style="cursor: default" onmousedown="event.cancelBubble = true" id="cc3">
-            					<!--<h5 class="title clearfix">
+            					<h5 class="title clearfix">
                 					<span>January, 2015</span>
                                     <a data-original-title="Next Month" class="actionIcon pull-right" onclick="" rel="tooltip" data-placement="right">
                                     	<i class="uiIconMiniArrowRight uiIconLightGray"></i>
@@ -374,7 +373,7 @@
             							<div class="calendarTimeInput">
                 							<span>
                     							<input type="text" onblur="this.parentNode.className=''" onfocus="this.parentNode.className='focus'" onkeyup="eXo.webui.UICalendar.setHour(this)" value="16" maxlength="2" class="InputTime">:<input type="text" onblur="this.parentNode.className=''" onfocus="this.parentNode.className='focus'" onkeyup="eXo.webui.UICalendar.setMinus(this)" value="40" maxlength="2" class="InputTime">
-                							</span>            							</div>-->
+                							</span>            							</div>
         							</div>
     							</div>
         					</ul>
@@ -382,14 +381,15 @@
    		</div>
 		
 		
-		<div></div>
+		<div></div>-->
 		<div class="input-append">
    			<span class="span_title">标签&nbsp;&nbsp;</span>
 			
 			<div class="btn-group" style="padding:0; margin-bottom:3px;">
-				<input type="text" data-toggle="dropdown"  id="tag" name="tag">
-				<ul class="dropdown-menu" style=" padding:0px;">
-					<select multiple="multiple" id="selectTag" name="selectTag" onChange="ShowToTextTag()">
+				<input type="text" data-toggle="dropdown"  id="tag" name="tag" AUTOCOMPLETE="off">
+				<!--
+                <ul class="dropdown-menu" style=" padding:0px;">	
+                    <select multiple="multiple" id="selectTag" name="selectTag" onChange="ShowToTextTag()">
   						<option value="标签1">标签1</option>
   						<option value="标签2">标签2</option>
   						<option value="标签3">标签3</option>
@@ -397,7 +397,7 @@
   						<option value="标签5">标签5</option>
   						<option value="标签6">标签6</option>
 					</select>
-				</ul>
+				</ul>-->
 			</div>
    		</div>
 		
@@ -481,7 +481,7 @@
 				</div>
 		
 		<div></div>
-		
+		<!--
 		<div class="input-append">
    			<span class="span_title">创建人员</span>
 			<input type="text" readonly="readonly" id="author" name="author" value="admin">
@@ -545,6 +545,7 @@
             <input type="hidden" value="0" id="policyEncrpLevel" name="policyEncrpLevel">
             <input type="hidden" value="0" id="InterpretationEncrpLevel" name="InterpretationEncrpLevel">
    		</div>
+        -->
 		<!--
 					<div id="dropbox">
            			<span class="message">请将EXCEL文件拖到这里</span>
@@ -553,7 +554,7 @@
 	<div class="input-append">
    			<span class="span_title">政策原文</span>
 			
-			<textarea rows="5" id="policyTxt" name="policyTxt"></textarea>
+			<textarea rows="5" id="policyTxt" name="policyTxt" AUTOCOMPLETE="off" ></textarea>
 			
 			<div></div>
 			
@@ -604,7 +605,7 @@
 		<div class="input-append">
    			<span class="span_title">政策解读</span>
 			
-			<textarea rows="5" id="InterpretationTxt" name="InterpretationTxt"></textarea>
+			<textarea rows="5" id="InterpretationTxt" name="InterpretationTxt" AUTOCOMPLETE="off"></textarea>
 			
 			<div></div>
 			<input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="2000000" />
@@ -648,10 +649,13 @@
    		</div>
 		
 		
-		
+		<input type="hidden" id="author" name="author" value="admin">
+        <input type="hidden" id="dept" name="dept" value="部门1">
+        <input type="hidden" id="createDate" name="createDate" value="">
 		<div class="input-append" style="width:95%;">
    			<button type="button" class="btn btn-block btn-primary" style="width:10%; float:right;" onClick="notes_add_touch()">提交</button>
    		</div>
+        
         </form>
        </div>
     </div>

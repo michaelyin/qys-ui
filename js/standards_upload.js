@@ -30,6 +30,7 @@
 			var standardType=standardTypeObj.options[index].text;//选中的文本  
 			//alert(publishDept);
 			document.getElementById("standardTypeTxt").value = standardType;
+			
 		}
 		
 		
