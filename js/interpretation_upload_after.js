@@ -1,4 +1,80 @@
- /*
+var image_count = 0;
+var image_count2 = 0;
+if(getPar("update")=="1")
+{
+	document.getElementById("policyName").value = decodeURI(getPar("name"));
+	document.getElementById("publishDept").value = decodeURI(getPar("dept"));
+	document.getElementById("selectPublishDept").value = decodeURI(getPar("dept"));
+	document.getElementById("policyNum").value = decodeURI(getPar("num"));
+	document.getElementById("policyCategoryTxt").value = decodeURI(getPar("type"));
+	document.getElementById("policyCategory").value = decodeURI(getPar("type"));
+	document.getElementById("tag").value = decodeURI(getPar("tag"));
+	document.getElementById("policyTxt").value = decodeURI(getPar("policyTxt"));
+	var policyFiles = decodeURI(getPar("policyFiles"));
+	var  image_list =policyFiles.split(";");
+	var messages_list=document.getElementById("messages");
+	var i=0;
+	
+	for(i=0;i<image_list.length-1;i++)
+	{
+		var image_one=image_list[i];
+		//alert( image_one);
+		if(image_one!="")
+		{
+			var div_one=document.createElement('div');
+			<!---->
+			div_one.innerHTML=	"<div class=\"row\" style=\"margin-top:20px; padding-left:35%\">"+
+									"<div class=\"news_pic col-lg-3 col-md-3 col-sm-4 col-xs-12\">"+								
+										"<div class=\"\">"+
+											"<img src=\"img/use.jpg\" height=\"152\" width=\"200\" id=\"imghead"+image_count+"\" class=\"img-responsive\"/>"+
+										"</div>"+
+									"</div>"+
+								"</div>"+
+								"<div class=\"row\" style=\"margin-top:10px; padding-left:35%\">"+
+									"<div class=\"col-lg-3 \">"+					
+										"<input type=\"button\" class=\"btn\" value=\"删除\" style=\"font-size:13px; padding:2px 10px; margin-right:10px;\" onclick=back_image_delete(this) />"+
+									"</div>"+
+								"</div>";
+							
+			messages_list.appendChild(div_one);
+		}
+	}
+	image_count = image_list.length - 1;
+	document.getElementById("InterpretationTxt").value = decodeURI(getPar("interpretationTxt"));
+	var interpretationFiles = decodeURI(getPar("interpretationFiles"));
+	var  image_list2 = interpretationFiles.split(";");
+	var messages_list =document.getElementById("messages2");
+	var i=0;
+	
+	for(i=0;i<image_list2.length-1;i++)
+	{
+		var image_one=image_list2[i];
+		//alert( image_one);
+		if(image_one!="")
+		{
+			var div_one=document.createElement('div');
+			<!---->
+			div_one.innerHTML=	"<div class=\"row\" style=\"margin-top:20px; padding-left:35%\">"+
+									"<div class=\"news_pic col-lg-3 col-md-3 col-sm-4 col-xs-12\">"+								
+										"<div class=\"\">"+
+											"<img src=\"img/use.jpg\" height=\"152\" width=\"200\" id=\"imghead"+image_count+"\" class=\"img-responsive\"/>"+
+										"</div>"+
+									"</div>"+
+								"</div>"+
+								"<div class=\"row\" style=\"margin-top:10px; padding-left:35%\">"+
+									"<div class=\"col-lg-3 \">"+					
+										"<input type=\"button\" class=\"btn\" value=\"删除\" style=\"font-size:13px; padding:2px 10px; margin-right:10px;\" onclick=back_image_delete2(this) />"+
+									"</div>"+
+								"</div>";
+							
+			messages_list.appendChild(div_one);
+		}
+	}
+	image_count = image_list.length - 1;
+
+}
+
+/*
  	*	上传数据
  	*/
 		//alert("aaaaaaaaaaaaa");
@@ -33,19 +109,81 @@
 			$("#"+add_object.form).ajaxSubmit({
 				url: path,
             	type: 'POST',
-				dataType: 'xml',
-				success: function (xmlDoc) {
-					//alert($(xmlDoc).text());
-            		var retCode = $(xmlDoc).find('status').text();
-					if(retCode=="1")
+				dataType: 'json',
+				success: function (json) {
+					//alert("aaaaaaaaaa");
+            		var id_value = json.id;
+					//alert(id_value);	
+					var name_value = json.name;
+					//alert(name_value);
+					var num_value = json.num;
+					//alert(num_value);
+					var type_value = json.type;
+					//alert(type_value);
+					var dept_value = json.dept;
+					//alert(dept_value);
+					var createDate_value = json.createDate;
+					//alert(createDate_value);
+					var tag_str = json.stanTags[0];
+					var tagobj=eval('('+tag_str+')');
+					var tag_value = tagobj.tag;
+					//alert(tag_value);
+					var files_str = json.stanJcrFiles[0];
+					//alert(files_str);
+					var file_str_arr = new Array();
+					var file_str_arr = files_str.split("},"); //字符分割
+					var file_value = "";
+					var uuid_value = "";
+					for (j=0;j<file_str_arr.length ;j++ )
 					{
-						alert("上传成功");
-					}else if(retCode=="0")
+						if(j!=(file_str_arr.length-1))
+						{
+							
+							var file_str = file_str_arr[j]+'}';
+							
+						}
+						else
+						{
+							var file_str = file_str_arr[j];
+						}
+						var file_obj=eval('('+file_str+')');
+						//alert(file_obj.fileName)
+						var file_value = file_value+file_obj.fileName+';';
+						var uuid_value = uuid_value+file_obj.uuid+';';
+					}
+					
+					var files_str2 = json.interpretationFiles[0];
+					//alert(files_str);
+					var file_str_arr2 = new Array();
+					file_str_arr2 = files_str2.split("},"); //字符分割
+					file_value2 =""
+					for (j=0;j<file_str_arr2.length ;j++ )
 					{
-						alert("上传失败");	
-					}else
+						if(j!=(file_str_arr2.length-1))
+						{
+							
+							var file_str2 = file_str_arr2[j]+'}';
+							
+						}
+						else
+						{
+							var file_str2 = file_str_arr2[j];
+						}
+						var file_obj2=eval('('+file_str2+')');
+						//alert(file_obj.fileName)
+						var file_value2 = file_value2+file_obj2.fileName+';';
+					}
+					var policyTxt_value = json.policyTxt;
+					var interpretationTxt_value = json.interpretationTxt;
+					var json_value ="id="+id_value+"&name="+name_value+"&num="+num_value+"&dept="+dept_value+"&createDate="+createDate_value+"&type="+type_value+"&tag="+tag_value+"&policyTxt="+policyTxt_value+"&interpretationTxt="+interpretationTxt_value+"&policyFiles="+file_value+"&policyUrls="+uuid_value+"&interpretationFiles="+file_value2+"&new="+getPar("new")+"&update=1";
+					if(json.id>'0')
 					{
-						alert(retCode);
+						alert("添加数据成功！");
+						window.location.href="interpretation_content.html?"+json_value;
+					}
+					else
+					{
+						alert("添加数据失败！");
 					}
           		},//submit success
 			
@@ -90,7 +228,7 @@
 	//alert(getNowFormatDate());
 	document.getElementById("createDate").value = getNowFormatDate();
 	//alert(get_url_base());
-	var path =get_url_base()+"/xml/add_policy_notes_xml.php";
+	var path =get_url_base()+"/json/add_interpretation_notes_json2.php";
 	//alert(path);
 	var notes_add=create_one_add(path);
 	//alert("1234567");
@@ -98,20 +236,24 @@
 	//alert(news_add.form);
 	notes_add.check_fn=function()
 	{
+		//alert(image_count);
 		//alert("aaaaaaaaaa");
 		if($("#form1").find("input[name='policyName']").val()=="".trim())
 		{
 			alert("请输入政策名称！");
+		
 			return false;
 		}
 		if($("#form1").find("input[name='publishDept']").val()=="".trim())
 		{
 			alert("请输入发布部门！");
+		
 			return false;
 		}
 		if($("#form1").find("input[name='policyNum']").val()=="".trim())
 		{
 			alert("请输入文号！");
+			location.replace(location.href);
 			return false;
 		}
 		if($("#form1").find("input[name='policyCategoryTxt']").val()=="".trim())
@@ -122,16 +264,19 @@
 		if($("#form1").find("input[name='tag']").val()=="".trim())
 		{
 			alert("请输入标签!");
+			
 			return false;
 		}
-		if($("#form1").find("textarea[name='policyTxt']").val()=="".trim())
+		if(($("#form1").find("textarea[name='policyTxt']").val()=="".trim())&&(image_count == 0))
 		{
 			alert("请输入政策原文！");
+			
 			return false;
 		}
-		if($("#form1").find("textarea[name='InterpretationTxt']").val()=="".trim())
+		if(($("#form1").find("textarea[name='InterpretationTxt']").val()=="".trim())&&(image_count2 == 100))
 		{
 			alert("请输入政策解读！");
+			
 			return false;
 		}
 		return true;	
@@ -188,7 +333,37 @@
 		image_count-=1;
 		
 	}
+	function back_image_delete(delete_button)
+	{	
+		var p_node=delete_button.parentNode.parentNode.parentNode;
+		var div_node=p_node.parentNode;
+		var image_node=p_node.childNodes[0].childNodes[0].childNodes[0].childNodes[0];
+		
+		//添加hidden结点 根据该结点删除图片
+		var div_list=document.getElementById("messages");
+		var p_one=document.createElement('div');
+		p_one.innerHTML="<input name=\"xxytp[]\" type=\"hidden\" value=\""+image_node.src+"\"/>";
+		div_list.insertBefore(p_one,div_list.firstChild);
+		
+		//删除当前行
+		div_node.removeChild(p_node);
+	}
 	
+	function back_image_delete2(delete_button)
+	{	
+		var p_node=delete_button.parentNode.parentNode.parentNode;
+		var div_node=p_node.parentNode;
+		var image_node=p_node.childNodes[0].childNodes[0].childNodes[0].childNodes[0];
+		
+		//添加hidden结点 根据该结点删除图片
+		var div_list=document.getElementById("messages2");
+		var p_one=document.createElement('div');
+		p_one.innerHTML="<input name=\"xxytp2[]\" type=\"hidden\" value=\""+image_node.src+"\"/>";
+		div_list.insertBefore(p_one,div_list.firstChild);
+		
+		//删除当前行
+		div_node.removeChild(p_node);
+	}
 	
 	var image_count2=100;
 	

@@ -67,7 +67,7 @@
 		</div>
 		
 		<div>
-			<span style="float:left">最近一个月共有xxx条政策发布</span>
+			<span style="float:left" id="total"></span>
             <span style="float:right">
             
               <ul class="breadcrumb">
@@ -102,6 +102,7 @@
 		<!----------------->
 		
         <div class="table-responsive" style="margin-top:10px;">
+        <form id="form1" method="post" name="f1" enctype="multipart/form-data"></form>
         	<table class="uiGrid table table-hover table-striped sortable">
         		<thead>
         			<tr> 
@@ -116,8 +117,8 @@
                  	</tr>
            		</thead>
                                 
-				<tbody>
-                 <!--新能源汽车领域有19个重点项目入选，共计划补贴约10.15个亿，重点围绕动力电池与电池管理、电机驱动与电力电子、电动汽车智能化、燃料电池动力系统等6个技术方向，部署38个重点研究任务。alert('您的鼠标刚才离开了该段！')-->
+				<tbody id="result_div">
+                 <!--
                 	<tr>
                     	<td >
                             <div class="tooltips"> 
@@ -235,7 +236,7 @@
                         <td>新能源汽车 重点专项 政策补贴
                         </td>
                         
-                   	</tr>
+                   	</tr>-->
 				
 					</tbody>
                     
@@ -250,12 +251,12 @@
       				<!--
                     <button class="btn" type="button" style=" font-size:13px; padding:2px 10px; margin-right:10px;">下载</button>
 					<button class="btn" type="button" style=" font-size:13px; padding:2px 10px;margin-right:10px;">收藏</button>
-                    -->
-					<button class="btn"  onclick="update_data()" type="button" style=" font-size:13px; padding:2px 10px;">上传</button>
+
+					<button class="btn"  onclick="update_data()" type="button" style=" font-size:13px; padding:2px 10px;">上传</button> -->
     			</div>
-			
-			
-				<div id="tcdPageCode" class="pagination uiPageIterator tcdPageCode" style="float:right; margin:0px; width:70%;">
+                <div id="tcdPageCode" class="pagination uiPageIterator tcdPageCode" style="float:right; margin:0px; width:70%;"></div>
+				<!--
+                
         			<ul>
             			<li class="active"><a href="">1</a></li>
             			<li><a href="">2</a></li>
@@ -263,7 +264,7 @@
             			<li class="disabled"><a href="#">...</a></li>
             			<li><a href="">20</a></li>
         			</ul>
-    			</div>
+    			-->
 				
 				<!--
 				<div class="input-append" style="float:left;">
@@ -287,7 +288,8 @@
 		<div style="margin-top:44px;">
 		    <div id="accordion" class="accordion">
         		<h5 class="menuHeader" style="background:#578DC9; color:#FFFFFF;">搜索历史</h5>
-        		
+                <div id="history">
+        		<!--
 				<div class="accordion-group">
             		<div class="accordion-heading">
                 		<div class="accordion-toggle collapsed">
@@ -351,8 +353,8 @@
                 		</div>
             		</div>
         		</div>
-                
-				
+                -->
+				</div>
     		</div>
 		</div>
 		
@@ -397,10 +399,10 @@
     <script type="text/javascript" src="js/mouseout.js"></script>
     
     <script type="text/javascript" src="js/mouseover.js"></script>
-    
-    
-	
-	<script src="js/jquery.page.js"></script>
+    <script src="js/jquery.page.js" type="text/javascript"></script>
+    <script src="policy_js/policy_common.js" type="text/javascript"></script>
+	<!--<script src="js/history.js" type="text/javascript"></script>-->
+    <script src="js/jquery.form.js" type="text/javascript"></script>
 	
     <script src="js/new_local.js" type="text/javascript"></script>
     <!-- Analytics 
