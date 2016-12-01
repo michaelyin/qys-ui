@@ -61,7 +61,7 @@
 		<div style="margin-left:2px;">
 			<div class="input-append" style=" width:100%;">
 				<div class="btn-group btn-large" style="padding:0; margin:0; width:15%;">
-        			<button id="btn1"` class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="width:100%">分类检索
+        			<button id="btn1" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="width:100%" value="分类检索">分类检索
             			<span class="caret" style="margin-top:8px;"></span>
         			</button>
         			<ul class="dropdown-menu">
@@ -77,21 +77,20 @@
 			
 			</div>
 		</div>
-		
-		<div style="margin-left:120px;">
+        <div style="margin-left:120px;">
 		    <ul class="breadcrumb">
         		<li class="active">级别</li>
 				
 				<li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox">
+  						<input type="checkbox" class="checkbox" name="search_dept[]" id="search_dept" value="国家政策" AUTOCOMPLETE="off">
   						<span>国家政策</span>
 					</span>
 				</li>
 				
         		<li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox">
+  						<input type="checkbox" class="checkbox" name="search_dept[]" id="search_dept" value="地方政策" AUTOCOMPLETE="off">
   						<span>地方政策</span>
 					</span>
 				</li>
@@ -100,44 +99,56 @@
     		<ul class="breadcrumb">
         		<li class="active">部门</li>
 				
+                <li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox" name="search_type[]" id="search_type" value="国务院" AUTOCOMPLETE="off">
+  						<span>国务院</span>
+					</span>
+				</li>
 				<li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox">
+  						<input type="checkbox" class="checkbox" name="search_type[]" id="search_type" value="工信部" AUTOCOMPLETE="off">
   						<span>工信部</span>
 					</span>
 				</li>
 				
         		<li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox">
+  						<input type="checkbox" class="checkbox" name="search_type[]" id="search_type" value="财政部" AUTOCOMPLETE="off">
   						<span>财政部</span>
+					</span>
+				</li>
+                <li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox" name="search_type[]" id="search_type" value="科技部" AUTOCOMPLETE="off">
+  						<span>科技部</span>
 					</span>
 				</li>
 				
 				<li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox">
+  						<input type="checkbox" class="checkbox" name="search_type[]" id="search_type" value="发改委" AUTOCOMPLETE="off">
   						<span>发改委</span>
 					</span>
 				</li>
 				
 				<li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox">
+  						<input type="checkbox" class="checkbox" name="search_type[]" id="search_type" value="能源局"  AUTOCOMPLETE="off">
   						<span>能源局</span>
 					</span>
 				</li>
                 
                 <li>
-					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox">
+					<span class="uiCheckbox" style="margin-left:42px;">
+  						<input type="checkbox" class="checkbox" name="search_type[]" id="search_type" value="北京市"  AUTOCOMPLETE="off">
   						<span>北京市</span>
 					</span>
 				</li>
                 
                 <li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox">
+  						<input type="checkbox" class="checkbox" name="search_type[]" id="search_type" value="上海市"  AUTOCOMPLETE="off">
   						<span>上海市</span>
 					</span>
 				</li>
